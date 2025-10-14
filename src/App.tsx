@@ -13,7 +13,7 @@ function App() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary fixed-top w-100 shadow">
         <div className="container-fluid">
           <Link className="navbar-brand fw-bold" to="/">
-            AdoptaPet
+            DangerBook
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span className="navbar-toggler-icon"></span>
@@ -31,6 +31,16 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to="/contacto">
                   Contacto
+                </Link>
+              </li>  
+              <li className="nav-item">
+                <Link className="nav-link" to="/servicios">
+                  Servicios
+                </Link>
+              </li>  
+              <li className="nav-item">
+                <Link className="nav-link" to="/galeria">
+                  Galería
                 </Link>
               </li>
             </ul>
@@ -50,7 +60,7 @@ function App() {
 
       {/* FOOTER */}
       <footer className="footer text-center py-3 bg-primary text-white">
-        © 2025 DangerBook - Todos los derechos reservados
+        © 2025 DangerBook - Todos los derechos gay
       </footer>
     </div>
   );

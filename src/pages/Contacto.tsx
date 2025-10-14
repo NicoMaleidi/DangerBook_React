@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-    const Contacto: React.FC = () => {
-    const [nombre, setNombre] = useState("");
-    const [email, setEmail] = useState("");
-    const [mensaje, setMensaje] = useState("");
+const Contacto: React.FC = () => {
+  const [nombre, setNombre] = useState("");
+  const [email, setEmail] = useState("");
+  const [mensaje, setMensaje] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,3 +66,5 @@ import React, { useState } from "react";
     </div>
   );
 }
+
+export default Contacto;
