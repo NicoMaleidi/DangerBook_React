@@ -15,7 +15,7 @@ const Contacto: React.FC = () => {
 
   return (
     <div className="main-content">
-      <h1 className="text-white fw-bold display-5 mb-3">Contactanos</h1>
+      <h1 className="text-white fw-bold display-5 mb-3">Contáctanos</h1>
       <p className="lead text-white mb-4">
         Déjanos tu mensaje y te responderemos lo antes posible.
       </p>

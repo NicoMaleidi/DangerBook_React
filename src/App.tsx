@@ -60,10 +60,10 @@ function App() {
 
       {/* FOOTER */}
       <footer className="footer text-center py-3 bg-primary text-white">
-        © 2025 DangerBook - Todos los derechos gay
+        © 2025 DangerBook - Todos los derechos reservados
       </footer>
     </div>
   );
 }
 
-export default App
+export default App;

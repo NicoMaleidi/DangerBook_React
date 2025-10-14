@@ -2,20 +2,26 @@ import React from "react";
 
 const Galeria: React.FC = () => {
   return (
-    <div className="main-content">
-      <h1 className="text-white fw-bold display-5">Nuestra Historia </h1>
-      <p className="lead text-white">
-        <strong>StudioDanger</strong> abrió sus puertas un 8 de noviembre del 2022, con la idea de entregar un estilo único a cada cliente. 
-              Desde el inicio se ha buscado marcar la diferencia, mezclando tradición con lo urbano y 
-              darle a ese cliente la comodidad que buscar conjunto a un buen ambiente en el que tenga la
-              confianza para hablar a cada barbero que se encuentra en la barbería.
-      </p>
-      <p className="text-white">
-        Hoy es más que una simple barbería: somos un espacio donde la gente viene a relajarse, compartir y salir renovada,
-              hasta con amistades nuevas.
-      </p>
+    <div className="galeria-container">
+      <h2 className="titulo">Galería DangerBook 💈</h2>
+      <br />
+      <div className="imagenes">
+        <img src="src/imagenes/hola.png" alt="Corte 1" />
+        <img src="src/imagenes/hola4.jpg" alt="Corte 3" />
+        <img src="src/imagenes/hola5.jpg" alt="Corte 2" />
+        <img src="src/imagenes/hola6.jpg" alt="Corte 3" />
+        <img src="src/imagenes/hola2.jpg" alt="Corte 2" />
+        <img src="src/imagenes/hola3.jpg" alt="Corte 3" />
+        <img src="src/imagenes/hola2.jpg" alt="Corte 2" />
+        <img src="src/imagenes/hola3.jpg" alt="Corte 3" />
+        <img src="src/imagenes/hola2.jpg" alt="Corte 2" />
+        <img src="src/imagenes/hola4.jpg" alt="Corte 3" />
+        <img src="src/imagenes/hola5.jpg" alt="Corte 2" />
+        <img src="src/imagenes/hola6.jpg" alt="Corte 3" />
+
+      </div>
     </div>
   );
-};
+};  
 
 export default Galeria;
