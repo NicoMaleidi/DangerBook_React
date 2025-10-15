@@ -47,7 +47,7 @@ function App() {
           </div>
         </div>
       </nav>
-
+      
       <div className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
