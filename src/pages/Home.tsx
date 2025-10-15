@@ -66,7 +66,7 @@ const Home: React.FC = () => {
       </div>
 
       <h1 className="fw-bold display-5 mt-4" style={{ color: "#FFD700" }}>
-        Bienvenid@s a DangerBook💈
+        Bienvenid@s a DangerBook estimada clientela💈
       </h1>
       <p className="lead" style={{ color: "#FFD700" }}>
         Conoce, adopta y da amor a tu nuevo mejor amigo.
