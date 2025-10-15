@@ -5,12 +5,13 @@
   box-sizing: border-box;
 }
 
-/* Body ocupa todo y tiene fondo bonito */
+/* Body ocupa todo y tiene fondo en negro */
 html, body {
   width: 100%;
   height: 100%;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom right, #4facfe, #00f2fe); /* degradado azul moderno */
+  background: linear-gradient(to bottom right, #000000, #111111); /* degradado negro elegante */
+  color: #FFD700; /* texto dorado */
 }
 
 /* Contenedor principal */
@@ -28,19 +29,20 @@ html, body {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(26, 31, 113, 0.95); /* azul oscuro semitransparente */
-  color: white;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.95); /* negro semitransparente */
+  color: #FFD700;
+  box-shadow: 0 2px 6px rgba(255, 215, 0, 0.2);
 }
 
 .navbar a.nav-link {
-  color: #fff;
+  color: #FFD700;
   font-weight: 600;
   transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 .navbar a.nav-link:hover {
-  color: #ffd700; /* amarillo brillante al pasar el mouse */
+  color: #ffffff; /* blanco al pasar el mouse */
 }
 
 /* Contenido central centrado */
@@ -48,12 +50,12 @@ html, body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* centra vertical */
-  align-items: center;       /* centra horizontal */
-  text-align: center;        /* centra el texto */
-  padding: 80px 20px 20px 20px; /* espacio para navbar */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px 20px 20px;
   width: 100vw;
-  color: #fff; /* letras blancas sobre fondo azul */
+  color: #FFD700;
 }
 
 /* Footer fijo abajo */
@@ -62,17 +64,18 @@ html, body {
   bottom: 0;
   left: 0;
   width: 100vw;
-  background-color: rgba(26, 31, 113, 0.95);
-  color: #fff;
+  background-color: rgba(0, 0, 0, 0.95);
+  color: #FFD700;
   text-align: center;
   padding: 12px 0;
   z-index: 999;
 }
 
+/* Galería */
 .galeria-container {
   text-align: center;
-  background-color: #111;
-  color: #ffc107;
+  background-color: #000;
+  color: #FFD700;
   padding: 40px;
   min-height: 100vh;
 }
@@ -89,11 +92,11 @@ html, body {
   height: 250px;
   border-radius: 10px;
   object-fit: cover;
-  box-shadow: 0 0 15px rgba(255, 193, 7, 0.3);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
   transition: 0.3s ease;
 }
 
 .imagenes img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255, 193, 7, 0.5);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
 }

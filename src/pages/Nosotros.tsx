@@ -14,7 +14,10 @@ const Nosotros: React.FC = () => {
         Hoy es más que una simple barbería: somos un espacio donde la gente viene a relajarse, compartir y salir renovada,
               hasta con amistades nuevas.
       </p>
+
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1QcovvpcUpO_NUQldhZzGt5wSJSVtAiUDqA&s" alt="ImagenBarberia" />
     </div>
+    
   );
 };
 
