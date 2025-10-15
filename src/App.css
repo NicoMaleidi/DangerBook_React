@@ -45,6 +45,10 @@ html, body {
   color: #ffffff; /* blanco al pasar el mouse */
 }
 
+.navbar.bg-primary {
+  background-color: rgba(46, 46, 46, 0.95) !important;
+}
+
 /* Contenido central centrado */
 .main-content {
   flex: 1;
@@ -69,6 +73,11 @@ html, body {
   text-align: center;
   padding: 12px 0;
   z-index: 999;
+}
+
+.footer.bg-primary {
+  background-color: rgba(46, 46, 46, 0.95) !important;
+  color: #FFD700 !important;
 }
 
 /* Galería */

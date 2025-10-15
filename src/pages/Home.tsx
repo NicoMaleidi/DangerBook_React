@@ -13,7 +13,7 @@ const Home: React.FC = () => {
         <div className="carousel-inner rounded-0 overflow-hidden shadow-lg">
           <div className="carousel-item active">
             <img
-              src="hola2.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1QcovvpcUpO_NUQldhZzGt5wSJSVtAiUDqA&s"
               className="d-block w-100"
               alt="Primera imagen"
               style={{ objectFit: "cover", height: "400px" }}
@@ -21,7 +21,7 @@ const Home: React.FC = () => {
           </div>
           <div className="carousel-item">
             <img
-              src="hola3.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_ATuEUHDQE389vXjDHuBEap4eayLyIAi0xQ&s"
               className="d-block w-100"
               alt="Segunda imagen"
               style={{ objectFit: "cover", height: "400px" }}
