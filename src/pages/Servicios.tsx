@@ -3,7 +3,7 @@ import React from "react";
 const Servicios: React.FC = () => {
   return (
     <div className="main-content">
-      <h1 className="text-white fw-bold display-5">Nuestra Historia </h1>
+      <h1 className="text-white fw-bold display-5">Servicios  </h1>
       <p className="lead text-white">
         <strong>StudioDanger</strong> abrió sus puertas un 8 de noviembre del 2022, con la idea de entregar un estilo único a cada cliente. 
               Desde el inicio se ha buscado marcar la diferencia, mezclando tradición con lo urbano y 

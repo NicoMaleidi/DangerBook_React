@@ -130,3 +130,29 @@ body {
   border-color: #ffc107;
   box-shadow: 0 0 5px rgba(255, 193, 7, 0.3);
 }
+
+.navbar-brand img {
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.1);
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffffff !important;
+}
+
+.logo-instagram {
+  filter: brightness(1.2);
+  transition: transform 0.3s ease;
+}
+
+.logo-instagram:hover {
+  transform: scale(1.2);
+}
