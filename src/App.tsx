@@ -16,7 +16,7 @@ function App() {
           <div className="d-flex align-items-center gap-3">
             <Link className="navbar-brand d-flex align-items-center" to="/">
               <img
-                src="src/imagenes/logostudiodanger.png"
+                src="public/imagenes/logostudiodanger.png"
                 alt="Logo"
                 width="50"
                 height="44"
@@ -38,7 +38,7 @@ function App() {
               rel="noopener noreferrer"
             >
               <img
-                src="src/imagenes/logo-instagram.png"
+                src="public/imagenes/logo-instagram.png"
                 alt="Instagram"
                 width="30"
                 height="30"

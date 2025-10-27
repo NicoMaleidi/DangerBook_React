@@ -13,7 +13,7 @@ const Home: React.FC = () => {
         <div className="carousel-inner rounded-0 overflow-hidden shadow-lg">
           <div className="carousel-item active">
             <img
-              src="src/imagenes/miau.jpg"
+              src="/imagenes/miau.jpg"
               className="d-block w-100"
               alt="Primera imagen"
               style={{ objectFit: "cover", height: "420px" }}
@@ -29,7 +29,7 @@ const Home: React.FC = () => {
           </div>
           <div className="carousel-item">
             <img
-              src="/imagenes/hola4.jpg"
+              src="/imagenes/cortesfichas.jpg"
               className="d-block w-100"
               alt="Tercera imagen"
               style={{ objectFit: "cover", height: "420px" }}
@@ -86,8 +86,26 @@ const Home: React.FC = () => {
           <strong> DangerBook</strong>, combinamos tradición y vanguardia para
           ofrecerte cortes de cabello y afeitados impecables. 
         </p>
+        <div className="row text-center">
+    <div className="col-md-4">
+      <i className="bi bi-scissors text-warning fs-1"></i>
+      <h5 className="mt-3">Cortes de Precisión</h5>
+      <p className="text-light">Estilos clásicos y modernos con toque profesional.</p>
+    </div>
+    <div className="col-md-4">
+      <i className="bi bi-droplet text-warning fs-1"></i>
+      <h5 className="mt-3">Afeitado Clásico</h5>
+      <p className="text-light">Relájate con una experiencia tradicional.</p>
+    </div>
+    <div className="col-md-4">
+      <i className="bi bi-stars text-warning fs-1"></i>
+      <h5 className="mt-3">Cuidado Facial</h5>
+      <p className="text-light">Limpieza facial para mantener tu piel fresca y sana.</p>
+    </div>
+  </div>
       </section>
     </div>
+    
   );
 };
 
