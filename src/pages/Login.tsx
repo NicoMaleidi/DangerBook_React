@@ -35,7 +35,7 @@ const Login: React.FC = () => {
       return;
     }
 
-    // Guardamos nombre para usar en navbar
+    // Guarda el nombre pa ponerlo en navbar
     localStorage.setItem("usuarioNombre", usuario.nombre || usuario.correo.split("@")[0]);
     // redirigir a home
     navigate("/", { replace: true });

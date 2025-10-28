@@ -5,7 +5,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 
 describe("Login component", () => {
   beforeEach(() => {
-    // añadir un usuario de prueba en localStorage para test
+    // añadir un usuario de prueba
     localStorage.setItem("usuarios", JSON.stringify([{ nombre: "Test", correo: "test@d.com", contrasena: "1234" }]));
   });
 
@@ -42,7 +42,7 @@ describe("Login component", () => {
     fireEvent.change(screen.getByLabelText(/Contraseña/i), { target: { value: "1234" } });
     fireEvent.click(screen.getByRole("button", { name: /Ingresar/i }));
 
-    // después de login se guarda nombre en localStorage
+    // después se guarda nombre en localStorage
     const nombre = localStorage.getItem("usuarioNombre");
     expect(nombre).toBe("Test");
   });

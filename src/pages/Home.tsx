@@ -1,6 +1,5 @@
 import React from "react";
 
-// 📌 Reseñas de clientes
 const reseñas = [
   {
     id: 1,
@@ -52,7 +51,7 @@ const Home: React.FC = () => {
   return (
     <div className="main-content text-center bg-dark text-light pb-0">
 
-      {/* 🎞️ Carrusel */}
+      {/* Carrusel */}
       <div
         id="carouselExample"
         className="carousel slide w-100"

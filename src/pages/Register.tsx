@@ -26,11 +26,10 @@ const Register: React.FC = () => {
     e.preventDefault();
     if (!validar()) return;
 
-    // Guardamos usuario en localStorage (simulación)
+    // Guardamos usuario en localStorage
     const usuariosRaw = localStorage.getItem("usuarios") || "[]";
     const usuarios = JSON.parse(usuariosRaw) as Array<{ correo: string; contrasena: string; nombre: string }>;
 
-    // Prevent duplicate email
     if (usuarios.some((u) => u.correo === correo)) {
       setErrores({ ...errores, correo: "Ya existe un usuario con este correo." });
       return;
@@ -40,7 +39,6 @@ const Register: React.FC = () => {
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
     localStorage.setItem("usuarioNombre", nombre);
 
-    // redirect to home
     navigate("/", { replace: true });
   };
 

@@ -50,7 +50,7 @@ function App() {
             </a>
           </div>
 
-          {/* Botón hamburguesa (responsive) */}
+          {/* Botón */}
           <button
             className="navbar-toggler"
             type="button"

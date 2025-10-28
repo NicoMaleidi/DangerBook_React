@@ -13,9 +13,8 @@ const Servicios: React.FC = () => {
         Descubre los servicios que ofrecemos para mantener tu estilo fresco y moderno.
       </p>
 
-      {/* GRID de servicios */}
       <div className="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-        {/* --- SERVICIO 1 --- */}
+        {/* Primer Servicio */}
         <div className="col">
           <div className="card servicio-card bg-dark text-light h-100">
             <img
@@ -41,7 +40,7 @@ const Servicios: React.FC = () => {
           </div>
         </div>
 
-        {/* --- SERVICIO 2 --- */}
+        {/* Segundo Servicio */}
         <div className="col">
           <div className="card servicio-card bg-dark text-light h-100">
             <img
@@ -67,7 +66,7 @@ const Servicios: React.FC = () => {
           </div>
         </div>
 
-        {/* --- SERVICIO 3 --- */}
+        {/* Tercer Servicio*/}
         <div className="col">
           <div className="card servicio-card bg-dark text-light h-100">
             <img
@@ -117,7 +116,7 @@ const Servicios: React.FC = () => {
           </div>
         </div>
 
-        {/* --- SERVICIO 4 --- */}
+        {/* Cuarto Servicio */}
         <div className="col">
           <div className="card servicio-card bg-dark text-light h-100">
             <img
