@@ -77,7 +77,7 @@ const Home: React.FC = () => {
           </div>
           <div className="carousel-item">
             <img
-              src="/imagenes/cortesfichas.jpg"
+              src="/imagenes/degradado.png"
               className="d-block w-100"
               alt="Tercera imagen"
               style={{ objectFit: "cover", height: "420px" }}
