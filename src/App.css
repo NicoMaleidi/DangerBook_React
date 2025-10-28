@@ -1,183 +1,287 @@
-/* Reset total y box-sizing */
+/* ===================== */
+/* 🎨 ESTILO GLOBAL */
+/* ===================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body ocupa todo y tiene fondo en negro */
 html, body {
   width: 100%;
   height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom right, #000000, #111111); /* degradado negro elegante */
-  color: #FFD700; /* texto dorado */
+  font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000000 100%);
+  color: #FFD700;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* Contenedor principal */
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
+/* Scroll personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #FFD700, #a88900);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #111;
 }
 
-/* Navbar fijo arriba */
+/* ===================== */
+/* 💈 NAVBAR */
+/* ===================== */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.95); /* negro semitransparente */
-  color: #FFD700;
-  box-shadow: 0 2px 6px rgba(255, 215, 0, 0.2);
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 3px 15px rgba(255, 215, 0, 0.15);
+  transition: background-color 0.3s ease;
 }
 
-.navbar a.nav-link {
-  color: #FFD700;
-  font-weight: 600;
-  transition: color 0.3s ease;
-  text-decoration: none;
-}
-
-.navbar a.nav-link:hover {
-  color: #ffffff; /* blanco al pasar el mouse */
-}
-
-.navbar.bg-primary {
-  background-color: rgba(46, 46, 46, 0.95) !important;
-}
-
-/* Contenido central centrado */
-.main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 80px 20px 20px 20px;
-  width: 100vw;
-  color: #FFD700;
-}
-
-/* Footer fijo abajo */
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  background-color: rgba(0, 0, 0, 0.95);
-  color: #FFD700;
-  text-align: center;
-  padding: 12px 0;
-  z-index: 999;
-}
-
-.footer.bg-primary {
-  background-color: rgba(46, 46, 46, 0.95) !important;
-  color: #FFD700 !important;
-}
-
-/* Galería */
-.galeria-container {
-  text-align: center;
-  background-color: #000;
-  color: #FFD700;
-  padding: 40px;
-  min-height: 100vh;
-}
-
-.imagenes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.imagenes img {
-  width: 250px;
-  height: 250px;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-  transition: 0.3s ease;
-}
-
-.imagenes img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
-}
-
-body {
-  background-color: #111;
-}
-
-.card {
-  border-radius: 1rem;
-}
-
-.form-control {
-  background-color: #222;
-  color: white;
-  border: 1px solid #444;
-}
-
-.form-control:focus {
-  background-color: #1a1a1a;
-  color: #fff;
-  border-color: #ffc107;
-  box-shadow: 0 0 5px rgba(255, 193, 7, 0.3);
+.navbar:hover {
+  background: rgba(0, 0, 0, 0.95);
 }
 
 .navbar-brand img {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5));
 }
-
 .navbar-brand img:hover {
   transform: scale(1.1);
-}
-
-.nav-link {
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: #ffffff !important;
-}
-
-.logo-instagram {
   filter: brightness(1.2);
-  transition: transform 0.3s ease;
 }
 
-.logo-instagram:hover {
-  transform: scale(1.2);
+.navbar .nav-link {
+  color: #FFD700 !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
 }
 
-.servicio-card {
-  border: none;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
-.servicio-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+/* ===================== */
+/* 💬 CONTENIDO PRINCIPAL */
+/* ===================== */
+.main-content {
+  flex: 1;
+  padding-top: 90px;
+  padding-bottom: 80px;
+  text-align: center;
+  min-height: 100vh;
 }
 
-.card-video-top {
-  width: 100%;
-  height: 100%;
+/* ===================== */
+/* 🖼️ CARRUSEL */
+/* ===================== */
+.carousel-item img {
   object-fit: cover;
-  border-radius: 0.5rem;
+  height: 450px;
+  filter: brightness(0.9);
 }
 
 .carousel-item::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.8));
+  background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
+}
+
+/* ===================== */
+/* 💇‍♂️ SERVICIOS */
+/* ===================== */
+.servicio-card {
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #1a1a1a !important;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.servicio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.servicio-card img {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.servicio-card .card-title {
+  font-weight: 700;
+  color: #FFD700;
+  margin-top: 0.5rem;
+}
+
+.servicio-card .card-text {
+  color: #e8e8e8;
+  font-size: 0.95rem;
+}
+
+.servicio-card h6 {
+  color: #fff;
+  margin: 10px 0;
+}
+
+.servicio-card button {
+  width: 90%;
+  background-color: #FFD700;
+  border: none;
+  color: #000;
+  font-weight: 700;
+  transition: 0.3s;
+  border-radius: 8px;
+}
+
+.servicio-card button:hover {
+  background-color: #ffda3d;
+  transform: scale(1.05);
+}
+
+/* ===================== */
+/* 💬 FORMULARIOS */
+/* (Login, Register, Contacto, Agenda) */
+/* ===================== */
+.card {
+  background: linear-gradient(145deg, #0d0d0d, #1a1a1a);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+}
+
+.form-control {
+  background-color: #111;
+  color: #FFD700;
+  border: 1px solid #444;
+  border-radius: 0.4rem;
+  transition: all 0.2s ease;
+}
+.form-control:focus {
+  background-color: #1a1a1a;
+  color: #fff;
+  border-color: #FFD700;
+  box-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+}
+
+/* ===================== */
+/* 🧔 BARBEROS */
+/* ===================== */
+.card.bg-secondary-subtle {
+  background-color: #1a1a1a !important;
+  color: #eaeaea !important;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.card.bg-secondary-subtle:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.card.bg-secondary-subtle h5 {
+  color: #FFD700 !important;
+  font-weight: 700;
+}
+
+.card.bg-secondary-subtle p {
+  color: #f5f5f5 !important;
+}
+
+.card.bg-secondary-subtle small {
+  color: #bfbfbf !important;
+}
+
+/* ===================== */
+/* ⭐ RESEÑAS */
+/* ===================== */
+.card.bg-secondary-subtle.text-dark {
+  background-color: #111 !important;
+  color: #f5f5f5 !important;
+  border: 1px solid rgba(255, 215, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.card.bg-secondary-subtle.text-dark:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.card.bg-secondary-subtle.text-dark h5 {
+  color: #FFD700 !important;
+}
+
+.card.bg-secondary-subtle.text-dark p.fst-italic {
+  color: #e0e0e0 !important;
+  font-size: 0.95rem;
+}
+
+.card.bg-secondary-subtle.text-dark p.text-warning {
+  font-size: 1.2rem;
+}
+
+/* ===================== */
+/* 🗺️ MAPA */
+/* ===================== */
+.mapa-container iframe {
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.25);
+}
+
+/* ===================== */
+/* 📸 GALERÍA */
+/* ===================== */
+.card-video-top {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-video-top:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+}
+
+/* ===================== */
+/* 📞 FOOTER */
+/* ===================== */
+footer.bg-black {
+  border-top: 2px solid rgba(255, 215, 0, 0.2);
+  color: #e0e0e0;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer.bg-black h5 {
+  color: #FFD700 !important;
+}
+
+footer.bg-black a.btn-warning {
+  background-color: #FFD700;
+  color: #000;
+  transition: all 0.3s ease;
+}
+
+footer.bg-black a.btn-warning:hover {
+  background-color: #ffdf4d;
+  transform: scale(1.05);
 }

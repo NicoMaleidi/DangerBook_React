@@ -4,6 +4,9 @@ import Nosotros from "./pages/Nosotros";
 import Servicios from "./pages/Servicios";
 import Galeria from "./pages/Galeria";
 import Contacto from "./pages/Contacto";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Agenda from "./pages/Agenda";
 import "./App.css";
 
 function App() {
@@ -101,6 +104,9 @@ function App() {
           <Route path="/galeria" element={<Galeria />} />
           <Route path="/servicios" element={<Servicios />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/registro" element={<Register />} />
+          <Route path="/agenda" element={<Agenda />} />
         </Routes>
       </div>
 
