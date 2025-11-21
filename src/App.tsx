@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Nosotros from "./pages/Nosotros";
 import Servicios from "./pages/Servicios";
@@ -10,12 +10,22 @@ import Agenda from "./pages/Agenda";
 import "./App.css";
 
 function App() {
+  const usuarioNombre = localStorage.getItem("usuarioNombre");
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("usuarioNombre");
+    navigate("/", { replace: true });
+  };
+
   return (
     <div className="app-container bg-dark text-light">
+
       {/* NAVBAR */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-2 shadow-sm fixed-top">
         <div className="container d-flex justify-content-between align-items-center">
-          {/* Sección izquierda: logo + login + registro + instagram */}
+
+          {/* IZQUIERDA */}
           <div className="d-flex align-items-center gap-3">
             <Link className="navbar-brand d-flex align-items-center" to="/">
               <img
@@ -28,12 +38,30 @@ function App() {
               <span className="fw-bold text-warning">StudioDanger</span>
             </Link>
 
-            <Link className="nav-link text-warning px-2" to="/login">
-              Login
-            </Link>
-            <Link className="nav-link text-warning px-2" to="/registro">
-              Registro
-            </Link>
+            {/* Login y Registro con Bienvenida */}
+              {usuarioNombre ? (
+                <div className="d-flex align-items-center gap-3">
+                  <span className="text-warning fw-bold">
+                    Bienvenido, {usuarioNombre}
+                </span>
+
+                <button
+                  onClick={handleLogout}
+                  className="btn btn-outline-warning btn-sm fw-bold"
+                >
+                  Cerrar sesión
+                </button>
+              </div>
+            ) : (
+              <>
+                <Link className="nav-link text-warning px-2" to="/login">
+                  Login
+                </Link>
+                <Link className="nav-link text-warning px-2" to="/registro">
+                  Registro
+                </Link>
+              </>
+            )}
 
             <a
               href="https://www.instagram.com/studiodanger_/"
@@ -45,58 +73,44 @@ function App() {
                 alt="Instagram"
                 width="30"
                 height="30"
-                className="logo-instagram"
               />
             </a>
           </div>
 
-          {/* Botón */}
+          {/* Botón Hamburguesa */}
           <button
             className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#menu"
-            aria-controls="menu"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* Menú principal */}
+          {/* MENU */}
           <div className="collapse navbar-collapse" id="menu">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link text-warning" to="/">
-                  Inicio
-                </Link>
+                <Link className="nav-link text-warning" to="/">Inicio</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-warning" to="/nosotros">
-                  Nosotros
-                </Link>
+                <Link className="nav-link text-warning" to="/nosotros">Nosotros</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-warning" to="/servicios">
-                  Servicios y Precios
-                </Link>
+                <Link className="nav-link text-warning" to="/servicios">Servicios y Precios</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-warning" to="/galeria">
-                  Galería
-                </Link>
+                <Link className="nav-link text-warning" to="/galeria">Galería</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-warning" to="/contacto">
-                  Contacto
-                </Link>
+                <Link className="nav-link text-warning" to="/contacto">Contacto</Link>
               </li>
             </ul>
           </div>
         </div>
       </nav>
 
-      {/* Contenido principal */}
+      {/* CONTENIDO */}
       <div className="main-content pt-5 mt-5">
         <Routes>
           <Route path="/" element={<Home />} />
