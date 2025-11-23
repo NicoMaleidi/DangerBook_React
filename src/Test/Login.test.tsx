@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { render, screen, fireEvent } from "@testing-library/react";
 import Login from "../pages/Login";
 import { BrowserRouter } from "react-router-dom";
@@ -45,5 +46,16 @@ describe("Login component", () => {
     // después se guarda nombre en localStorage
     const nombre = localStorage.getItem("usuarioNombre");
     expect(nombre).toBe("Test");
+=======
+import {describe, it, expect} from 'vitest';
+import { render, screen } from '@testing-library/react';
+import Login from '../components/Login';
+
+describe('Login Component', () => {
+  it('renders login form', () => {
+    render(<Login />);
+    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
+>>>>>>> Stashed changes
   });
 });
