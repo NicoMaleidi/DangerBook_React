@@ -1,156 +1,144 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import {  obtenerDias, obtenerBloques, 
+          obtenerHorarios, obtenerDisponibilidad
+ } from "../services/horariosService";
+import axios from "axios";
 
 const Agenda: React.FC = () => {
-  const [reservaConfirmada, setReservaConfirmada] = useState(false);
-  const [nombre, setNombre] = useState("");
-  const [fecha, setFecha] = useState("");
-  const [hora, setHora] = useState("");
+  const [dias, setDias] = useState<any[]>([]);
+  const [bloques, setBloques] = useState<any[]>([]);
+  const [horarios, setHorarios] = useState<any[]>([]);
+  const [disponibilidad, setDisponibilidad] = useState<any[]>([]);
+
   const [barbero, setBarbero] = useState("");
-  const [errores, setErrores] = useState({
-    nombre: "",
-    fecha: "",
-    hora: "",
-    barbero: "",
-  });
+  const [diaSeleccionado, setDiaSeleccionado] = useState("");
+  const [horaSeleccionada, setHoraSeleccionada] = useState("");
+  const [horasFiltradas, setHorasFiltradas] = useState<any[]>([]);
 
-  const validar = () => {
-    const nuevos = { nombre: "", fecha: "", hora: "", barbero: "" };
+  const [reservaConfirmada, setReservaConfirmada] = useState(false);
 
-    if (!nombre.trim()) nuevos.nombre = "El nombre es obligatorio.";
-    if (!barbero.trim()) nuevos.barbero = "Selecciona un barbero.";
-    if (!fecha.trim()) nuevos.fecha = "Selecciona una fecha válida.";
-    if (!hora.trim()) nuevos.hora = "Selecciona una hora disponible.";
+  useEffect(() => {
+    obtenerDias().then((res) => setDias(res.data));
+    obtenerBloques().then((res) => setBloques(res.data));
+    obtenerHorarios().then((res) => setHorarios(res.data));
+    obtenerDisponibilidad().then((res) => setDisponibilidad(res.data));
+  }, []);
 
-    setErrores(nuevos);
-    return Object.values(nuevos).every((v) => v === "");
-  };
+  // Filtrar horarios según día + barbero
+  useEffect(() => {
+    if (!diaSeleccionado || !barbero) return;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!validar()) return;
+    const horariosDelDia = horarios.filter(
+      (h) => h.id_dia === parseInt(diaSeleccionado)
+    );
+
+    // Filtrar horarios donde el barbero está disponible
+    const disponibles = horariosDelDia.filter((h) =>
+      disponibilidad.some(
+        (d) =>
+          d.id_horario === h.id_horario &&
+          d.id_usuario.toString() === barbero.toString()
+      )
+    );
+
+    // Convertir bloque → hora visual
+    const final = disponibles.map((h) => {
+      const b = bloques.find((bl) => bl.id_bloque === h.id_bloque);
+      return {
+        id_horario: h.id_horario,
+        hora: new Date(b.fechaInicio).toLocaleTimeString("es-CL", {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      };
+    });
+
+    setHorasFiltradas(final);
+  }, [diaSeleccionado, barbero, horarios, disponibilidad, bloques]);
+
+  const reservar = async () => {
+    const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
+
+    if (!usuario.id_usuario) {
+      alert("Debes iniciar sesión para reservar.");
+      return;
+    }
+
+    await axios.post("http://localhost:8083/api/v1/agendamiento/guardar", {
+      id_usuario: usuario.id_usuario,
+      id_horario: horaSeleccionada,
+      id_servicio: 1, // temporal, puedes ajustarlo
+      subtotal: "10000",
+    });
 
     setReservaConfirmada(true);
-    setNombre("");
-    setFecha("");
-    setHora("");
-    setBarbero("");
   };
 
+  if (reservaConfirmada)
+    return (
+      <div className="container mt-5 pt-5 text-center text-light">
+        <h2 className="text-success">¡Reserva realizada con éxito!</h2>
+      </div>
+    );
+
   return (
-    <div className="container mt-5 pt-5 text-center text-light">
-      <h1 className="text-warning fw-bold mb-4">Agenda tu cita 💈</h1>
-      <p className="text-secondary mb-5">
-        Selecciona tu barbero, fecha y hora para reservar.
-      </p>
+    <div className="container mt-5 pt-5 text-light">
+      <h1 className="text-warning fw-bold mb-4 text-center">Agendar Hora</h1>
 
-      {!reservaConfirmada ? (
-        <form
-          onSubmit={handleSubmit}
-          className="mx-auto bg-dark p-4 rounded shadow-lg border border-warning"
-          style={{ maxWidth: "500px" }}
-          noValidate
+      <div className="mb-3">
+        <label className="form-label">Barbero</label>
+        <select
+          className="form-control"
+          value={barbero}
+          onChange={(e) => setBarbero(e.target.value)}
         >
-          {/* NOMBRE */}
-          <div className="mb-3 text-start">
-            <label className="form-label">Nombre</label>
-            <input
-              type="text"
-              className={`form-control ${errores.nombre ? "is-invalid" : ""}`}
-              value={nombre}
-              onChange={(e) => setNombre(e.target.value)}
-              placeholder="Tu nombre"
-            />
-            {errores.nombre && (
-              <div className="invalid-feedback">{errores.nombre}</div>
-            )}
-          </div>
+          <option value="">Seleccione barbero</option>
+          <option value="7">Steve Lázaro</option>
+          <option value="8">Martín Svideski</option>
+        </select>
+      </div>
 
-          {/* BARBERO */}
-          <div className="mb-3 text-start">
-            <label className="form-label">Barbero</label>
-            <select
-              className={`form-control ${errores.barbero ? "is-invalid" : ""}`}
-              value={barbero}
-              onChange={(e) => setBarbero(e.target.value)}
-            >
-              <option value="">Selecciona un barbero</option>
-              <option value="Steve Lázaro">Steve Lázaro</option>
-              <option value="Martín Svideski">Martín Svideski</option>
-            </select>
-            {errores.barbero && (
-              <div className="invalid-feedback">{errores.barbero}</div>
-            )}
-          </div>
+      <div className="mb-3">
+        <label className="form-label">Día</label>
+        <select
+          className="form-control"
+          value={diaSeleccionado}
+          onChange={(e) => setDiaSeleccionado(e.target.value)}
+        >
+          <option value="">Seleccione un día</option>
+          {dias.map((d) => (
+            <option key={d.id_dia} value={d.id_dia}>
+              {d.dia}
+            </option>
+          ))}
+        </select>
+      </div>
 
-          {/* FECHA */}
-          <div className="mb-3 text-start">
-            <label className="form-label">Fecha</label>
-            <input
-              type="date"
-              className={`form-control ${errores.fecha ? "is-invalid" : ""}`}
-              value={fecha}
-              onChange={(e) => setFecha(e.target.value)}
-              min={new Date().toISOString().split("T")[0]}
-            />
-            {errores.fecha && (
-              <div className="invalid-feedback">{errores.fecha}</div>
-            )}
-          </div>
+      <div className="mb-3">
+        <label className="form-label">Hora</label>
+        <select
+          className="form-control"
+          value={horaSeleccionada}
+          onChange={(e) => setHoraSeleccionada(e.target.value)}
+          disabled={!horasFiltradas.length}
+        >
+          <option value="">Seleccione una hora</option>
 
-          {/* HORA */}
-          <div className="mb-3 text-start">
-            <label className="form-label">Hora</label>
-            <select
-              className={`form-control ${errores.hora ? "is-invalid" : ""}`}
-              value={hora}
-              onChange={(e) => setHora(e.target.value)}
-            >
-              <option value="">Selecciona una hora</option>
-              {[
-                "10:00",
-                "11:00",
-                "12:00",
-                "13:00",
-                "14:00",
-                "15:00",
-                "16:00",
-                "17:00",
-                "18:00",
-              ].map((h) => (
-                <option key={h} value={h}>
-                  {h}
-                </option>
-              ))}
-            </select>
-            {errores.hora && (
-              <div className="invalid-feedback">{errores.hora}</div>
-            )}
-          </div>
+          {horasFiltradas.map((h) => (
+            <option key={h.id_horario} value={h.id_horario}>
+              {h.hora}
+            </option>
+          ))}
+        </select>
+      </div>
 
-          <button
-            type="submit"
-            className="btn btn-warning fw-bold w-100 mt-3"
-          >
-            Reservar Ahora
-          </button>
-        </form>
-      ) : (
-        <div className="alert alert-success mt-4" role="alert">
-          <h4 className="alert-heading text-success fw-bold">
-            ¡Reserva confirmada! ✅
-          </h4>
-          <p>
-            Tu cita ha sido agendada con éxito. ¡Te esperamos en{" "}
-            <strong>StudioDanger</strong> para dejarte impecable!
-          </p>
-          <button
-            className="btn btn-secondary mt-3"
-            onClick={() => setReservaConfirmada(false)}
-          >
-            Agendar otra cita
-          </button>
-        </div>
-      )}
+      <button
+        onClick={reservar}
+        className="btn btn-warning w-100 mt-3 fw-bold"
+        disabled={!horaSeleccionada}
+      >
+        Reservar
+      </button>
     </div>
   );
 };
