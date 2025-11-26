@@ -110,6 +110,10 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link text-warning" to="/contacto">Contacto</Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link text-warning" to="/resena">Reseñas</Link>
+              </li>
+
             </ul>
           </div>
         </div>
@@ -127,6 +131,7 @@ function App() {
           <Route path="/registro" element={<Register />} />
           <Route path="/agenda" element={<Agenda />} />
           <Route path="/resena" element={<Resena />} />
+          
 
         </Routes>
       </div>
