@@ -7,6 +7,11 @@ import Contacto from "./pages/Contacto";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Agenda from "./pages/Agenda";
+import Resena from "./pages/Resena";
+
+
+<Route path="/resena" element={<Resena />} />
+
 import "./App.css";
 
 function App() {
@@ -121,6 +126,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/registro" element={<Register />} />
           <Route path="/agenda" element={<Agenda />} />
+          <Route path="/resena" element={<Resena />} />
+
         </Routes>
       </div>
 
